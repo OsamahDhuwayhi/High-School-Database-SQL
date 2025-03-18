@@ -1,0 +1,311 @@
+
+-------------------------------------------------------------------------
+CREATE DATABASE HighSchool;-- Creating new database
+
+USE HighSchool; -- a common code for editing the database
+
+CREATE TABLE Student ( -- Creating Student table
+Student_ID INT NOT NULL PRIMARY KEY,
+Student_Name VARCHAR(225),
+Student_BirthDate DATE,
+Student_Gender ENUM('M','F'),
+Student_EnrollmentDay DATE,
+Student_Email VARCHAR(225),
+Student_StudyLevel INT CHECK(Student_StudyLevel BETWEEN 1 AND 6),
+Student_Track ENUM('Humanistic','Scientific'),
+Student_GPA FLOAT
+);
+
+--Inserting data to the Student table
+INSERT INTO Student (Student_ID, Student_Name, Student_BirthDate, Student_Gender, Student_EnrollmentDay, Student_Email, Student_StudyLevel, Student_Track, Student_GPA)
+VALUES
+(1, 'Mohammed Aldossari', '2005-04-15', 'M', '2023-08-22', 'mohammed.aldossari@email.com', 1, 'Humanistic', 87),
+(2, 'Fatima Alsaud', '2004-11-10', 'F', '2023-08-22', 'fatima.alsaud@email.com', 2, 'Scientific', 92),
+(3, 'Ahmed Alhassan', '2003-01-20', 'M', '2022-08-23', 'ahmed.alhassan@email.com', 3, 'Humanistic', 90),
+(4, 'Aisha Alqasim', '2002-12-05', 'F', '2021-08-22', 'aisha.alqasim@email.com', 4, 'Scientific', 94),
+(5, 'Youssef Alfaris', '2005-06-11', 'M', '2023-08-22', 'youssef.alfaris@email.com', 1, 'Scientific', 80),
+(6, 'Zainab Alghamdi', '2004-02-13', 'F', '2023-08-23', 'zainab.alghamdi@email.com', 2, 'Humanistic', 88),
+(7, 'Omar Aljaber', '2003-03-25', 'M', '2022-08-23', 'omar.aljaber@email.com', 3, 'Scientific', 85),
+(8, 'Noura Alfaris', '2002-08-19', 'F', '2021-08-22', 'noura.alfaris@email.com', 4, 'Humanistic', 90),
+(9, 'Ali Alhadi', '2005-10-02', 'M', '2023-08-22', 'ali.alhadi@email.com', 1, 'Scientific', 83),
+(10, 'Mariam Alzahrani', '2004-03-17', 'F', '2023-08-22', 'mariam.alzahrani@email.com', 2, 'Humanistic', 89),
+(11, 'Sami Alkhateeb', '2003-09-29', 'M', '2022-08-23', 'sami.alkhateeb@email.com', 3, 'Scientific', 86),
+(12, 'Lina Alhussain', '2002-12-17', 'F', '2021-08-22', 'lina.alhussain@email.com', 4, 'Humanistic', 84),
+(13, 'Khaled Alrashid', '2005-01-13', 'M', '2023-08-22', 'khaled.alrashid@email.com', 1, 'Scientific', 91),
+(14, 'Nadia Alshamri', '2004-07-22', 'F', '2023-08-22', 'nadia.alshamri@email.com', 2, 'Humanistic', 87),
+(15, 'Rashed Alnasser', '2003-06-04', 'M', '2022-08-23', 'rashed.elnasser@email.com', 3, 'Scientific', 90),
+(16, 'Salma Alabbas', '2002-02-28', 'F', '2021-08-22', 'salma.alabbas@email.com', 4, 'Humanistic', 92),
+(17, 'Sultan Aljohani', '2005-09-08', 'M', '2023-08-22', 'sultan.aljohani@email.com', 1, 'Scientific', 88),
+(18, 'Reem Alotibi', '2004-01-18', 'F', '2023-08-22', 'reem.alotibi@email.com', 2, 'Humanistic', 91),
+(19, 'Mohammed Alshehri', '2003-11-11', 'M', '2022-08-23', 'mohammed.alshehri@email.com', 3, 'Scientific', 84),
+(20, 'Maha Alzahrani', '2002-10-05', 'F', '2021-08-22', 'maha.alzahrani@email.com', 4, 'Humanistic', 95),
+(21, 'Hassan Alqahtani', '2005-03-17', 'M', '2023-08-22', 'hassan.alqahtani@email.com', 1, 'Scientific', 79),
+(22, 'Dalia Aljohani', '2004-09-03', 'F', '2023-08-22', 'dalia.aljohani@email.com', 2, 'Humanistic', 85),
+(23, 'Faisal Almutairi', '2003-04-25', 'M', '2022-08-23', 'faisal.almutairi@email.com', 3, 'Scientific', 93),
+(24, 'Rania Alkhuraishi', '2002-05-10', 'F', '2021-08-22', 'rania.alkhuraishi@email.com', 4, 'Humanistic', 88),
+(25, 'Badr Alsaud', '2005-12-21', 'M', '2023-08-22', 'badr.alsaud@email.com', 1, 'Scientific', 81),
+(26, 'Safa Alsalem', '2004-06-01', 'F', '2023-08-22', 'safa.alsalem@email.com', 2, 'Humanistic', 83),
+(27, 'Fawaz Alghamdi', '2003-08-13', 'M', '2022-08-23', 'fawaz.alghamdi@email.com', 3, 'Scientific', 86),
+(28, 'Lina Alattar', '2002-07-29', 'F', '2021-08-22', 'lina.alattar@email.com', 4, 'Humanistic', 89),
+(29, 'Abdullah Aljabri', '2005-11-06', 'M', '2023-08-22', 'abdullah.aljabri@email.com', 1, 'Scientific', 90),
+(30, 'Noor Alsharif', '2004-01-28', 'F', '2023-08-22', 'noor.alsharif@email.com', 2, 'Humanistic', 92);
+
+
+CREATE TABLE Teacher ( -- Creating Teacher table
+Teacher_ID INT NOT NULL PRIMARY KEY,
+Teacher_Name VARCHAR(225),
+Teacher_BirthDate DATE,
+Teacher_Gender ENUM('F','M'),
+Teacher_Email VARCHAR(225),
+Teacher_OfficeNumber INT NOT NULL
+);
+
+--Inserting data to Teacher table
+INSERT INTO Teacher (Teacher_ID, Teacher_Name, Teacher_BirthDate, Teacher_Gender, Teacher_Email, Teacher_OfficeNumber)
+VALUES
+(1, 'Ahmed Al-Jabri', '1985-04-15', 'M', 'ahmed.aljabri@email.com', 101),
+(2, 'Fatima Al-Hassan', '1990-11-22', 'F', 'fatima.alhassan@email.com', 102),
+(3, 'Mohammed Al-Saadi', '1982-06-09', 'M', 'mohammed.alsaadi@email.com', 103),
+(4, 'Noura Al-Farsi', '1978-03-30', 'F', 'noura.alfarsi@email.com', 104),
+(5, 'Youssef Al-Dosari', '1988-08-18', 'M', 'youssef.aldosari@email.com', 105),
+(6, 'Reem Al-Saoud', '1992-01-10', 'F', 'reem.alsaoud@email.com', 106),
+(7, 'Khaled Al-Shammari', '1987-07-25', 'M', 'khaled.alshammari@email.com', 107),
+(8, 'Aisha Al-Khater', '1995-12-02', 'F', 'aisha.alkhater@email.com', 108),
+(9, 'Omar Al-Mutairi', '1980-09-05', 'M', 'omar.almutairi@email.com', 109),
+(10, 'Safa Al-Nasser', '1983-05-19', 'F', 'safa.alnasser@email.com', 110);
+
+
+CREATE TABLE Course ( --Creating course table
+Course_Id INT NOT NULL PRIMARY KEY,
+Course_Name VARCHAR(225)
+);
+
+--Inserting data to Course table
+INSERT INTO Course (Course_Id, Course_Name)
+VALUES
+(1, 'Mathematics 101'),
+(2, 'Physics 101'),
+(3, 'Chemistry 101'),
+(4, 'Arabic Language 101'),
+(5, 'Computer Science 101'),
+(6, 'English Literature 101');
+
+
+--Display the data of each table
+SELECT * FROM Student;
+SELECT * FROM Teacher;
+SELECT * FROM Course;
+
+--Display the Student names in order.
+SELECT * FROM Student ORDER BY ASCII (Student_Name);
+
+
+--Display the Student table but with using "AS" tool for giving a nickname for "Student_Id".
+SELECT Student_ID AS Student_IdentificationNumber, Student_Name, Student_BirthDate, Student_Gender, Student_EnrollmentDay, Student_Email, Student_StudyLevel, Student_Track, Student_GPA
+FROM Student;
+
+-- Update a Email of a student by his ID.
+UPDATE Student
+SET Student_Email = 'Mohammed.BinAldossari@email.com'
+WHERE Student_Id = 1;
+SELECT * FROM Student;
+
+
+--Update a Office Number of a teacher by his ID.
+UPDATE Teacher
+SET Teacher_OfficeNumber = 100
+WHERE Teacher_id = 1;
+SELECT * FROM Teacher;
+
+--Changing the name of a column.
+ALTER TABLE Course
+CHANGE Course_Id Course_ID INT;
+SELECT * FROM Course;
+
+-------------------------------------------------------------------------
+
+
+--Creating a new table from an exiting table with a specify condition.
+CREATE TABLE Top_Student AS
+SELECT Student_ID, Student_Name,Student_BirthDate,Student_Gender,Student_EnrollmentDay,Student_Email,Student_StudyLevel,Student_Track,Student_GPA
+FROM Student
+WHERE Student_GPA > 90;
+SELECT * FROM Top_Student;
+
+CREATE TABLE NotPassed_Student AS
+SELECT Student_ID, Student_Name,Student_BirthDate,Student_Gender,Student_EnrollmentDay,Student_Email,Student_StudyLevel,Student_Track,Student_GPA
+FROM Student
+WHERE Student_GPA < 60;
+SELECT * FROM NotPassed_Student;
+
+--Display the students with their first letter name is 'A'.
+SELECT * FROM Student WHERE Student_Name LIKE 'A%';
+
+--Applying Aggregate Function to the "Student_GPA"
+SELECT
+		AVG(Student_GPA) AS Average_GPA,
+		MAX(Student_GPA) AS Max_GPA,
+		MIN(Student_GPA) AS MIN_GPA
+FROM Student;
+
+--Specify and visualize a Students with only Study level = 6 and GPA = 100.
+SELECT Student_ID, Student_Name, Student_GPA
+FROM Student
+WHERE Student_StudyLevel = 6 AND Student_GPA = 100;
+
+--Display the data of student in condition their study level is 1 and age between 18 and 19
+SELECT *
+FROM Student
+WHERE Student_StudyLevel = 1 AND Student_BirthDate BETWEEN '2005-01-01' AND '2005-12-25';
+
+----Display the data of student in condition their study level is 2 
+SELECT *
+FROM Student
+WHERE Student_StudyLevel = 2;
+
+--Display the Track of the students without repetition. 
+SELECT DISTINCT Student_Track
+FROM Student;
+
+--Display the courses name but with a UPPER case letters
+SELECT UPPER(Course_Name)
+FROM Course;
+
+--Calculating the arithmetic mean of the GPA for all students is calculated and rounding to the nearest whole number
+SELECT FLOOR(AVG(Student_GPA)) AS Average_GPA
+FROM Student;
+
+--Replacing all columns data with names of 'F' and 'M' to 'Female' and 'Male'
+UPDATE student
+SET Student_Gender = CASE
+    WHEN Student_Gender = 'F' THEN 'Female'
+    WHEN Student_Gender = 'M' THEN 'Male'
+    ELSE Student_Gender
+END;
+
+--Update the grade of students who their grades under 60 and give them more 5 points.
+UPDATE Student
+SET Student_GPA = Student_GPA + 5
+WHERE Student_GPA < 60;
+SELECT * FROM Student;
+-------------------------------------------------------------------------
+
+--Creating a new tables because of "Many-to-Many" Relationship.
+CREATE TABLE Teacher_Student ( 
+    NewTeacher_ID INT,
+    NewStudent_ID INT,
+    PRIMARY KEY (NewTeacher_ID, NewStudent_ID),
+    FOREIGN KEY (NewStudent_ID) REFERENCES Student(Student_ID),
+    FOREIGN KEY (NewTeacher_ID) REFERENCES Teacher(Teacher_ID)
+);
+
+CREATE TABLE Course_Student (  
+    NewCourse_ID INT,  
+    NewStudent_ID INT,
+    PRIMARY KEY (NewCourse_ID, NewStudent_ID),
+    FOREIGN KEY (NewStudent_ID) REFERENCES Student(Student_ID),
+    FOREIGN KEY (NewCourse_ID) REFERENCES Course(Course_ID)  
+);
+
+--Inserting data from joining between "Course" and "Student" table to "Course_Student" table.
+INSERT INTO course_student (NewCourse_ID, NewStudent_ID)
+SELECT Student_ID, Course_ID 
+FROM Course
+JOIN Student
+ON Student.Student_ID BETWEEN 1 AND 30
+WHERE Course.Course_ID IN (1,2,3,4,5,6);
+
+--Displaying the Student name and Course name with IDs by "INNER JOIN" technique.
+SELECT CS.NewCourse_ID, CS.NewStudent_ID, S.Student_Name, C.Course_Name
+FROM Course_Student CS
+JOIN Student S ON CS.NewStudent_ID = S.Student_ID
+JOIN Course C ON CS.NewCourse_ID = C.Course_ID;
+
+-- Randomly assign teachers to students
+INSERT INTO  Teacher_Student(NewTeacher_ID, NewStudent_ID)
+SELECT Teacher_ID, Student_ID
+FROM Teacher 
+JOIN Student 
+WHERE Student_ID BETWEEN 1 AND 30; 
+
+--Find all students taught by a specific teacher
+SELECT Student_Name
+FROM Teacher_Student 
+JOIN Student  ON Teacher_Student.NewStudent_ID = Student.Student_ID
+WHERE NewTeacher_ID = 1;  -- Teacher ID 1
+
+--Find all teachers teaching a specific student
+SELECT Teacher_Name
+FROM Teacher_Student 
+JOIN Teacher  ON NewTeacher_ID = Teacher_ID
+WHERE NewStudent_ID = 1;  -- Student ID 1
+
+
+--Adding a column "Teacher_ID" in "Course" table to keep in approach
+ALTER TABLE Course
+ADD COLUMN Teacher_ID INT;
+
+--Adding a Foreign key in "Course" table to keep in approach
+ALTER TABLE Course
+ADD CONSTRAINT fk_teacher_id FOREIGN KEY (Teacher_ID) REFERENCES Teacher(Teacher_ID);
+
+-- Assign Teacher_ID to each course
+UPDATE Course
+SET Teacher_ID = 1
+WHERE Course_Name = 'Mathematics 101';
+
+UPDATE Course
+SET Teacher_ID = 2
+WHERE Course_Name = 'Physics 101';
+
+UPDATE Course
+SET Teacher_ID = 3
+WHERE Course_Name = 'Chemistry 101';
+
+UPDATE Course
+SET Teacher_ID = 4
+WHERE Course_Name = 'Arabic Language 101';
+
+UPDATE Course
+SET Teacher_ID = 5
+WHERE Course_Name = 'Computer Science 101';
+
+UPDATE Course
+SET Teacher_ID = 6
+WHERE Course_Name = 'English Literature 101';
+
+
+--Creating a "PROCEDURE" for displaying the student with their courses.
+DELIMITER //
+CREATE PROCEDURE Student_info()
+BEGIN
+SELECT Student_Name, Course_Name
+FROM Student
+JOIN Course_Student ON Student_ID = NewStudent_ID
+JOIN Course ON NewCourse_ID = Course_ID;
+END
+
+--Calling "PROCEDURE”.
+CALL Student_info;
+
+--Creating "VIEW" to display the teacher and the subjects he or she teaches.
+CREATE VIEW teacher_info AS
+SELECT t.Teacher_Name, t.Teacher_OfficeNumber, c.Course_Name
+FROM Teacher t
+JOIN Course c ON t.Teacher_ID = c.Teacher_ID;
+
+--Calling "VIEW"
+SELECT * FROM teacher_info;
+
+--Dropping the "VIEW".
+DROP VIEW teacher_info;
+
+--Creating "INDEX"
+CREATE INDEX idx_student_name
+ON Student (Student_Name);
+
+--DISPLAY THE “INDEX”
+SHOW INDEX FROM Student;
+
+--Dropping the “INDEX”
+DROP INDEX idx_student_name ON Student;
