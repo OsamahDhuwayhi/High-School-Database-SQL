@@ -1,0 +1,87 @@
+USE School;
+CREATE TABLE student(
+id INT PRIMARY KEY  ,
+Student_name VARCHAR(225),
+Student_sex ENUM('M', 'F'),
+Student_date VARCHAR(12),
+Student_enrollmentDay VARCHAR(12),
+Student_email VARCHAR(225),
+Student_studyLevel INT CHECK (Student_studyLevel BETWEEN 1 AND 6),
+Student_track ENUM('Scientific', 'Humanistic'),
+Student_GPA INT
+);
+INSERT INTO student (id, Student_name, Student_sex, Student_date,
+ Student_enrollmentDay, Student_email, Student_studyLevel, Student_track,Student_GPA)
+VALUES 
+(1, "Mohammed Saeed", 'M', "2002-12-25", "2021-09-01", "mohammed.saeed@email.com", 6, "Scientific", 89),
+(2, "Layla Omar", 'F', "2005-01-05", "2024-09-01", "layla.omar@email.com", 4, "Scientific", 92),
+(3, "Yousef Khaled", 'M', "2003-05-22", "2022-09-01", "yousef.khaled@email.com", 6, "Humanistic", 90),
+(4, "Hana Ibrahim", 'F', "2004-08-17", "2023-09-01", "hana.ibrahim@email.com", 5, "Scientific", 97),
+(5, "Salman Tariq", 'M', "2002-11-30", "2021-09-01", "salman.tariq@email.com", 6, "Scientific", 55),
+(6, "Aisha Nasser", 'F', "2005-04-14", "2024-09-01", "aisha.nasser@email.com", 4, "Humanistic", 94),
+(7, "Omar Faisal", 'M', "2003-02-28", "2022-09-01", "omar.faisal@email.com", 6, "Scientific", 88),
+(8, "Noor Sami", 'F', "2004-06-19", "2023-09-01", "noor.sami@email.com", 5, "Humanistic", 96),
+(9, "Ali Rami", 'M', "2002-10-08", "2021-09-01", "ali.rami@email.com", 6, "Scientific", 50),
+(10, "Sara Adel", 'F', "2005-07-21", "2024-09-01", "sara.adel@email.com", 4, "Scientific", 91),
+(11, "Bilal Kareem", 'M', "2003-09-12", "2022-09-01", "bilal.kareem@email.com", 6, "Humanistic", 86),
+(12, "Mariam Yassin", 'F', "2004-11-02", "2023-09-01", "mariam.yassin@email.com", 5, "Scientific", 93),
+(13, "Hamza Fawzi", 'M', "2002-08-27", "2021-09-01", "hamza.fawzi@email.com", 6, "Scientific", 58),
+(14, "Zainab Mustafa", 'F', "2005-02-15", "2024-09-01", "zainab.mustafa@email.com", 4, "Humanistic", 95),
+(15, "Rashid Sameer", 'M', "2003-12-06", "2022-09-01", "rashid.sameer@email.com", 6, "Scientific", 89),
+(16, "Dalia Farid", 'F', "2004-10-31", "2023-09-01", "dalia.farid@email.com", 5, "Scientific", 98),
+(17, "Fahad Jamil", 'M', "2002-05-20", "2021-09-01", "fahad.jamil@email.com", 6, "Humanistic", 45),
+(18, "Nourhan Zaki", 'F', "2005-09-11", "2024-09-01", "nourhan.zaki@email.com", 4, "Scientific", 92),
+(19, "Ibrahim Raed", 'M', "2003-04-09", "2022-09-01", "ibrahim.raed@email.com", 6, "Scientific", 88),
+(20, "Lina Maged", 'F', "2004-12-23", "2023-09-01", "lina.maged@email.com", 5, "Humanistic", 97),
+(21, "Khalid Mahmoud", 'M', "2002-07-04", "2021-09-01", "khalid.mahmoud@email.com", 6, "Scientific", 48),
+(22, "Khalid Al-Saadi", 'M', '2022-07-10', 'Monday', 'khalid.saadi@email.com', 6, 'Scientific', 52),
+(23, "Layla Al-Najjar", 'F', '2021-06-20', 'Thursday', 'layla.najjar@email.com', 3, 'Humanistic', 92),
+(24, "Hassan Al-Tamimi", 'M', '2025-01-11', 'Saturday', 'hassan.tamimi@email.com', 2, 'Scientific', 49),
+(25, "Noor Al-Khalifa", 'F', '2023-05-09', 'Wednesday', 'noor.khalifa@email.com', 1, 'Humanistic', 95),
+(26, "Sami Al-Zahrani", 'M', '2024-04-18', 'Friday', 'sami.zahrani@email.com', 4, 'Scientific', 86),
+(27, "Maha Al-Shehri", 'F', '2022-03-25', 'Monday', 'maha.shehri@email.com', 5, 'Humanistic', 89),
+(28, "Omar Al-Dossari", 'M', '2023-02-14', 'Wednesday', 'omar.dossari@email.com', 3, 'Scientific', 90),
+(29, "Rami Nasser", 'M', "2004-05-25", "2023-08-01", "rami.nasser@email.com", 5, "Scientific", 80),
+(30, "Nadine Faris", 'F', "2002-09-10", "2021-07-01", "nadine.faris@email.com", 6, "Humanistic", 70);
+
+SELECT * FROM Student;
+USE School;
+CREATE TABLE Teacher(
+id INT PRIMARY KEY,
+Teacher_name VARCHAR(225),
+Teacher_date CHAR(12),
+Teacher_sex ENUM('M','F'),
+Teacher_email CHAR(225),
+Teacher_officeNumber INT
+);
+
+USE School;
+INSERT INTO teacher (id, Teacher_name, Teacher_date, Teacher_sex, Teacher_email, Teacher_officeNumber)
+VALUES
+(1, "Faris Alhesoni", "1994-13-10", 'M', "Faris@school.edu", 102),
+(2, "Fatima Al-Suwaidi", "1985-08-23", 'F', "fatima.suwaidi@school.edu", 102),
+(3, "Hassan Al-Tamimi", "1978-11-05", 'M', "hassan.tamimi@school.edu", 103),
+(4, "Layla Al-Zaabi", "1990-02-17", 'F', "layla.zaabi@school.edu", 104),
+(5, "Mohammed Al-Rashid", "1975-07-30", 'M', "mohammed.rashid@school.edu", 105),
+(6, "Aisha Al-Dhaheri", "1988-09-14", 'F', "aisha.dhaheri@school.edu", 106),
+(7, "Salem Al-Nuaimi", "1982-03-22", 'M', "salem.nuaimi@school.edu", 107),
+(8, "Mariam Al-Ketbi", "1993-06-09", 'F', "mariam.ketbi@school.edu", 108),
+(9, "Omar Al-Farsi", "1979-12-01", 'M', "omar.farsi@school.edu", 109),
+(10, "Khalid Al-Habsi", "1984-04-26", 'M', "khalid.habsi@school.edu", 110);
+SELECT * FROM Teacher;
+
+USE school;
+CREATE TABLE Course(
+id INT PRIMARY KEY,
+Course_name CHAR(15)
+);
+SELECT * FROM Course;
+
+INSERT INTO Course (id, Course_name)
+VALUES 
+(1, "Mathematics"),
+(2, "Physics"),
+(3, "Chemistry"),
+(4, "Biology"),
+(5, "History"),
+(6, "ComputerSci");
