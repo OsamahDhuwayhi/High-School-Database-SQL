@@ -1,5 +1,5 @@
 
--------------------------------------------------------------------------
+
 CREATE DATABASE HighSchool;-- Creating new database
 
 USE HighSchool; -- a common code for editing the database
@@ -122,7 +122,7 @@ ALTER TABLE Course
 CHANGE Course_Id Course_ID INT;
 SELECT * FROM Course;
 
--------------------------------------------------------------------------
+
 
 
 --Creating a new table from an exiting table with a specify condition.
@@ -137,6 +137,12 @@ SELECT Student_ID, Student_Name,Student_BirthDate,Student_Gender,Student_Enrollm
 FROM Student
 WHERE Student_GPA < 60;
 SELECT * FROM NotPassed_Student;
+
+CREATE TABLE Average_Student AS 
+SELECT *
+FROM Student
+WHERE Student_GPA BETWEEN 60 AND 90;
+SELECT * FROM Average_Student;
 
 --Display the students with their first letter name is 'A'.
 SELECT * FROM Student WHERE Student_Name LIKE 'A%';
@@ -188,7 +194,7 @@ UPDATE Student
 SET Student_GPA = Student_GPA + 5
 WHERE Student_GPA < 60;
 SELECT * FROM Student;
--------------------------------------------------------------------------
+
 
 --Creating a new tables because of "Many-to-Many" Relationship.
 CREATE TABLE Teacher_Student ( 
